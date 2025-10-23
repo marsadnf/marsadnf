@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مؤسسة مرصد العمل غير الربحي | صفحة واحدة</title>
+  <meta name="description" content="المنصة التعريفية لمؤسسة مرصد العمل غير الربحي" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="container nav" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <div class="brand">
+      <a href="index.html#home" aria-label="العودة إلى الرئيسية">
+        <img src="assets/logo.png" alt="شعار مؤسسة مرصد العمل غير الربحي" style="width:304px;height:auto;object-fit:contain">
+      </a>
+    </div>
+
+    <nav class="menu" aria-label="Main Navigation" style="display:flex;gap:18px;align-items:center;position:relative">
+      <a href="index.html#home" class="nav-link">الرئيسية</a>
+
+      <!-- قائمة منسدلة: عن المؤسسة -->
+      <div class="dropdown" style="position:relative">
+        <a href="index.html#about" class="nav-link" style="display:inline-flex;align-items:center;gap:6px">
+          عن المؤسسة
+          <span aria-hidden="true" style="font-size:12px;opacity:.8">▾</span>
+        </a>
+        <!-- أزلنا display:none من هنا -->
+        <div class="submenu" role="menu" aria-label="عن المؤسسة"
+             style="position:absolute;top:100%;inset-inline-end:0;min-width:220px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 25px rgba(2,6,23,.08);padding:8px">
+          <a href="board.html" class="sub-link" style="display:block;padding:10px 12px;border-radius:10px;color:#000;font-weight:700;text-decoration:none">مجلس الأمناء</a>
+          <a href="ceo.html" class="sub-link" style="display:block;padding:10px 12px;border-radius:10px;color:#000;font-weight:700;text-decoration:none">الرئيس التنفيذي</a>
+ <a href="assets/profile.pdf" target="_blank" class="sub-link" style="display:block;padding:10px 12px;border-radius:10px;color:#000;font-weight:700;text-decoration:none">الملف التعريفي</a>
+        </div>
+      </div>
+
+      <a href="index.html#projects" class="nav-link">المراصد</a>
+      <a href="index.html#services" class="nav-link">الخدمات</a>
+      <a href="index.html#contact" class="nav-link">اتصل بنا</a>
+    </nav>
+  </div>
+</header>
+
+
+<script>
+document.querySelectorAll('.dropdown > a').forEach(function(trigger){
+  trigger.addEventListener('click', function(e){
+    // لو تريد منع القفز إلى #about عند أول نقرة وجعلها تفتح القائمة فقط:
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      const dd = trigger.parentElement;
+      const open = dd.classList.toggle('open');
+      dd.querySelector('.submenu').style.display = open ? 'block' : 'none';
+      // أغلق أي قوائم أخرى مفتوحة
+      document.querySelectorAll('.dropdown').forEach(function(other){
+        if (other !== dd){ other.classList.remove('open'); const sm=other.querySelector('.submenu'); if(sm) sm.style.display='none'; }
+      });
+    }
+  });
+});
+</script>
+
+ </section>
+
+  <!-- مجلس الأمناء -->
+  <section id="board">
+    <div class="container">
+      <h3 class="section-title">مجلس الأمناء</h3>
+      <div class="board-grid">
+        <article class="member"><img src="assets/عبدالوهاب الرسيني.jpg" alt=""><p class="role">رئيس المجلس</p><h4 class="name">الأستاذ الدكتور عبدالوهاب عبدلله صالح الرسيني</h4></article>
+        <article class="member"><img src="assets/عاطف أصغر.jpg" alt=""><p class="role">نائب رئيس المجلس</p><h4 class="name">الأستاذ الدكتور عاطف بن حسين بن مصطفى أصغر</h4></article>
+        <article class="member"><img src="assets/همام بن جريّد.jpg" alt=""><p class="role">عضو المجلس</p><h4 class="name">الأستاذ همام ناصر عبدالرحمن بن جريّد</h4></article>
+        <article class="member"><img src="assets/سارة العايد.jpg" alt=""><p class="role">عضو المجلس</p><h4 class="name">الأستاذة ساره عايد محمد العايد</h4></article>
+        <article class="member"><img src="assets/خالد السريحي.jpg" alt=""><p class="role">عضو المجلس</p><h4 class="name">الدكتور خالد عبدلله رجاء السريحي</h4></article>
+        <article class="member"><img src="assets/أسامه الحناكي.jpg" alt=""><p class="role">عضو المجلس</p><h4 class="name">الأستاذ أسامه سليمان علي الحناكي</h4></article>
+        <article class="member"><img src="assets/سليمان الزبن.jpg" alt=""><p class="role">عضو المجلس</p><h4 class="name">الأستاذ سليمان عبدالعزيز عبدالرحمن الزبن</h4></article>
+        <article class="member"><img src="assets/عبدالرحمن الرشود.jpeg" alt=""><p class="role">عضو المجلس</p><h4 class="name">المهندس عبدالرحمن سليمان عبدلله الرشود</h4></article>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+ <footer>
+  <div class="container footer-wrap">
+    <!-- يسار/يمين حسب RTL: نص الحقوق -->
+    <div class="footer-left">
+      © <span id="year"></span> مؤسسة مرصد العمل غير الربحي. جميع الحقوق محفوظة.
+    </div>
+
+    <!-- الوسط: الشعاران -->
+    <div class="footer-logos">
+      <img src="assets/partner1.png" alt="شعار شريك1">
+      <img src="assets/partner2.png" alt="شعار شريك2">
+    </div>
+
+    <!-- يمين/يسار: الروابط -->
+    <div class="footer-links">
+      <a href="#">سياسة الخصوصية</a>
+      <a href="#">الشروط</a>
+    </div>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<!-- Scripts -->
+<script>
+// Banner rotation
+(function(){
+  const slider = document.querySelector('.banner-slider');
+  if(!slider) return;
+  const slides = Array.from(slider.querySelectorAll('.slide'));
+  let i = 0, timer;
+  function next(){ slides[i].classList.remove('is-active'); i=(i+1)%slides.length; slides[i].classList.add('is-active'); }
+  function start(){ timer=setInterval(next, 5000); }
+  function stop(){ clearInterval(timer); }
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+})();
+
+// Active link on scroll
+(function(){
+  const links = Array.from(document.querySelectorAll('.nav .menu .nav-link'));
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function onScroll(){
+    let idx = 0;
+    for (let s=0; s<sections.length; s++){
+      const rect = sections[s].getBoundingClientRect();
+      if (rect.top <= 120) idx = s;
+    }
+    links.forEach(l=>l.classList.remove('active'));
+    if (links[idx]) links[idx].classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
+</html>
+<script>
+(function(){
+  if (document.querySelector('.beta-ribbon')) return;
+  var rb = document.createElement('div');
+  rb.className = 'beta-ribbon';
+  rb.setAttribute('aria-label','إطلاق تجريبي');
+
+  var tx = document.createElement('span');
+  tx.className = 'beta-ribbon__text';
+  tx.textContent = 'إطلاق تجريبي';
+
+  rb.appendChild(tx);
+  document.body.appendChild(rb);
+})();
+</script>
+

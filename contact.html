@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مؤسسة مرصد العمل غير الربحي | صفحة واحدة</title>
+  <meta name="description" content="المنصة التعريفية لمؤسسة مرصد العمل غير الربحي" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="container nav" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <div class="brand">
+      <a href="index.html#home" aria-label="العودة إلى الرئيسية">
+        <img src="assets/logo.png" alt="شعار مؤسسة مرصد العمل غير الربحي" style="width:304px;height:auto;object-fit:contain">
+      </a>
+    </div>
+
+    <nav class="menu" aria-label="Main Navigation" style="display:flex;gap:18px;align-items:center;position:relative">
+      <a href="index.html#home" class="nav-link">الرئيسية</a>
+
+      <!-- قائمة منسدلة: عن المؤسسة -->
+      <div class="dropdown" style="position:relative">
+        <a href="index.html#about" class="nav-link" style="display:inline-flex;align-items:center;gap:6px">
+          عن المؤسسة
+          <span aria-hidden="true" style="font-size:12px;opacity:.8">▾</span>
+        </a>
+        <!-- أزلنا display:none من هنا -->
+        <div class="submenu" role="menu" aria-label="عن المؤسسة"
+             style="position:absolute;top:100%;inset-inline-end:0;min-width:220px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 25px rgba(2,6,23,.08);padding:8px">
+          <a href="board.html" class="sub-link" style="display:block;padding:10px 12px;border-radius:10px;color:#000;font-weight:700;text-decoration:none">مجلس الأمناء</a>
+          <a href="ceo.html" class="sub-link" style="display:block;padding:10px 12px;border-radius:10px;color:#000;font-weight:700;text-decoration:none">الرئيس التنفيذي</a>
+ <a href="assets/profile.pdf" target="_blank" class="sub-link" style="display:block;padding:10px 12px;border-radius:10px;color:#000;font-weight:700;text-decoration:none">الملف التعريفي</a>
+        </div>
+      </div>
+
+      <a href="index.html#projects" class="nav-link">المراصد</a>
+      <a href="index.html#services" class="nav-link">الخدمات</a>
+      <a href="index.html#contact" class="nav-link">اتصل بنا</a>
+    </nav>
+  </div>
+</header>
+
+
+<script>
+document.querySelectorAll('.dropdown > a').forEach(function(trigger){
+  trigger.addEventListener('click', function(e){
+    // لو تريد منع القفز إلى #about عند أول نقرة وجعلها تفتح القائمة فقط:
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      const dd = trigger.parentElement;
+      const open = dd.classList.toggle('open');
+      dd.querySelector('.submenu').style.display = open ? 'block' : 'none';
+      // أغلق أي قوائم أخرى مفتوحة
+      document.querySelectorAll('.dropdown').forEach(function(other){
+        if (other !== dd){ other.classList.remove('open'); const sm=other.querySelector('.submenu'); if(sm) sm.style.display='none'; }
+      });
+    }
+  });
+});
+</script>
+
+<main>
+   <div class="card col-img" style="display:flex;align-items:center;justify-content:center">
+<div class="card">
+<div class="card"><strong>رسالة سريعة</strong>
+<form name="contact" method="post" action="mailto:info@marsadnf.com" enctype="text/plain">
+<input type="text" name="name" placeholder="الاسم" required style="width:100%;margin:8px 0;padding:12px;border:1px solid var(--border);border-radius:10px"/>
+<input type="email" name="email" placeholder="البريد الإلكتروني" required style="width:100%;margin:8px 0;padding:12px;border:1px solid var(--border);border-radius:10px"/>
+<textarea name="message" placeholder="رسالتك" required style="width:100%;margin:8px 0;padding:12px;border:1px solid var(--border);border-radius:10px;height:140px"></textarea>
+<button class="btn" type="submit">إرسال</button></form></div></div></section></main>
+
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+ <footer>
+  <div class="container footer-wrap">
+    <!-- يسار/يمين حسب RTL: نص الحقوق -->
+    <div class="footer-left">
+      © <span id="year"></span> مؤسسة مرصد العمل غير الربحي. جميع الحقوق محفوظة.
+    </div>
+
+    <!-- الوسط: الشعاران -->
+    <div class="footer-logos">
+      <img src="assets/partner1.png" alt="شعار شريك1">
+      <img src="assets/partner2.png" alt="شعار شريك2">
+    </div>
+
+    <!-- يمين/يسار: الروابط -->
+    <div class="footer-links">
+      <a href="#">سياسة الخصوصية</a>
+      <a href="#">الشروط</a>
+    </div>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<!-- Scripts -->
+<script>
+// Banner rotation
+(function(){
+  const slider = document.querySelector('.banner-slider');
+  if(!slider) return;
+  const slides = Array.from(slider.querySelectorAll('.slide'));
+  let i = 0, timer;
+  function next(){ slides[i].classList.remove('is-active'); i=(i+1)%slides.length; slides[i].classList.add('is-active'); }
+  function start(){ timer=setInterval(next, 5000); }
+  function stop(){ clearInterval(timer); }
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+})();
+
+// Active link on scroll
+(function(){
+  const links = Array.from(document.querySelectorAll('.nav .menu .nav-link'));
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function onScroll(){
+    let idx = 0;
+    for (let s=0; s<sections.length; s++){
+      const rect = sections[s].getBoundingClientRect();
+      if (rect.top <= 120) idx = s;
+    }
+    links.forEach(l=>l.classList.remove('active'));
+    if (links[idx]) links[idx].classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
+</html>
+<script>
+(function(){
+  if (document.querySelector('.beta-ribbon')) return;
+  var rb = document.createElement('div');
+  rb.className = 'beta-ribbon';
+  rb.setAttribute('aria-label','إطلاق تجريبي');
+
+  var tx = document.createElement('span');
+  tx.className = 'beta-ribbon__text';
+  tx.textContent = 'إطلاق تجريبي';
+
+  rb.appendChild(tx);
+  document.body.appendChild(rb);
+})();
+</script>
+
